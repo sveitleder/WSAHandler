@@ -26,8 +26,8 @@ int main(int argc, char* argv[])
 	}
 	printf("connected...\n");
 	std::mutex miqMutex;
-    std::mutex moqMutex;
-    std::vector<MessageIn> miq;
+	std::mutex moqMutex;
+	std::vector<MessageIn> miq;
 	std::vector<MessageOut> moq;
 	wsah.linkMutex(&miqMutex, &moqMutex);
 	wsah.linkQueues(&miq, &moq);

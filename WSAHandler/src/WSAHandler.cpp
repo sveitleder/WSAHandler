@@ -105,7 +105,7 @@ void WSAHandler::update(std::string& message){
 }
 
 bool WSAHandler::sendWhisper(std::string target, std::string message){
-	std::string s = "PRIVMSG "+channel+" :/w "+ target + " " + message + "\r\n";
+	std::string s = "PRIVMSG "+ channel +" :/w "+ target + " " + message + "\r\n";
 	iResult = send(ConnectSocket, s.c_str(), (int) strlen(s.c_str()), 0);
 		if (iResult == SOCKET_ERROR) {
 		    printf("send failed: %d\n", WSAGetLastError());
@@ -118,7 +118,7 @@ bool WSAHandler::sendWhisper(std::string target, std::string message){
 }
 
 bool WSAHandler::sendBroadcast(std::string message){
-	std::string s = "PRIVMSG #sadtwig :" + message + "\r\n";
+	std::string s = "PRIVMSG "+ channel +" :" + message + "\r\n";
 	iResult = send(ConnectSocket, s.c_str(), (int) strlen(s.c_str()), 0);
 		if (iResult == SOCKET_ERROR) {
 		    printf("send failed: %d\n", WSAGetLastError());
